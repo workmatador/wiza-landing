@@ -771,6 +771,13 @@ form .status i {
     text-align: center;
 }
 
+.modal-dialog .modal-content h5 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.875rem;
+    text-align: left;
+}
+
 .modal-dialog .modal-content .modal-header {
     border-bottom: none;
     padding: 4.0625rem 2.8125rem;
