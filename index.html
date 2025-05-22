@@ -3,7 +3,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="ThemeStarz">
 
     <link href="assets/fonts/font-awesome.css" rel="stylesheet" type="text/css">
@@ -76,7 +76,6 @@
 
         .modal {
         z-index: 1050 !important;
-        pointer-events: auto;
         }
         
 
@@ -356,13 +355,49 @@
                     headers: { 'Accept': 'application/json' }
                 }).then(response => {
                     if (response.ok) {
-                        alert('Thanks for your submission!');
+                        const message = document.createElement("div");
+                            message.innerText = "Thanks for your submission!";
+                            message.style.position = "fixed";
+                            message.style.bottom = "20px";
+                            message.style.left = "50%";
+                            message.style.transform = "translateX(-50%)";
+                            message.style.background = "#333";
+                            message.style.color = "#fff";
+                            message.style.padding = "10px 20px";
+                            message.style.borderRadius = "8px";
+                            message.style.zIndex = "9999";
+                            document.body.appendChild(message);
+                            setTimeout(() => message.remove(), 3000);
                         this.reset();
                     } else {
-                        alert('Oops! There was a problem submitting your form.');
+                        const message = document.createElement("div");
+                            message.innerText = "Oops! There was a problem submitting your form.";
+                            message.style.position = "fixed";
+                            message.style.bottom = "20px";
+                            message.style.left = "50%";
+                            message.style.transform = "translateX(-50%)";
+                            message.style.background = "#333";
+                            message.style.color = "#fff";
+                            message.style.padding = "10px 20px";
+                            message.style.borderRadius = "8px";
+                            message.style.zIndex = "9999";
+                            document.body.appendChild(message);
+                            setTimeout(() => message.remove(), 3000);
                     }
                 }).catch(error => {
-                    alert('Network error: ' + error.message);
+                    const message = document.createElement("div");
+                            message.innerText = 'Network error: ' + error.message;
+                            message.style.position = "fixed";
+                            message.style.bottom = "20px";
+                            message.style.left = "50%";
+                            message.style.transform = "translateX(-50%)";
+                            message.style.background = "#333";
+                            message.style.color = "#fff";
+                            message.style.padding = "10px 20px";
+                            message.style.borderRadius = "8px";
+                            message.style.zIndex = "9999";
+                            document.body.appendChild(message);
+                            setTimeout(() => message.remove(), 3000);
                 });
             });
         }
