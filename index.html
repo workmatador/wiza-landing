@@ -3,7 +3,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="author" content="ThemeStarz">
 
     <link href="assets/fonts/font-awesome.css" rel="stylesheet" type="text/css">
@@ -164,6 +164,58 @@
 <!--end page-wrapper-->
 
 <!-- Modal About Us -->
+<div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/50">
+  <div className="relative w-full max-w-md p-6 bg-white rounded-xl">
+    <div class="modal fade" id="modal-about-us" tabindex="-1" role="dialog" aria-labelledby="modal-about-us-label">
+    <div class="modal-dialog" role="document">
+        <div class="container">
+            <div class="modal-content">
+                <div class="modal-header" data-background-color="#165dfb">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2 class="modal-title" id="modal-about-us-label">About Us</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5">
+                            <section>
+                                <div class="row">
+                                    <div class="col-md-10 col-sm-8">
+                                        <div class="person">
+                                            <img src="assets/img/wiz-temp.png" alt="" width="100%">
+                                            <h4>By Agents, For Agents</h4>
+                                        </div>
+                                        <!--end image-->
+                                    </div>
+                                </div>
+                                <!--end row-->
+                            </section>
+                        </div>
+                        <!--end left side-->
+                        <div class="col-md-7 col-sm-7">
+                            <section>
+                                <h5>What is Wiza?</h5>
+                                <p>WIZA is India’s first tech-enabled, B2B-only visa platform designed exclusively for travel agents. WIZA simplifies visa processing with AI-powered tools, automated checklists, and real-time updates.
+                                </p>
+                                <p>
+                                    Our platform lets you manage end-to-end visa service, from document collection to submission. No more delays, errors, or manual hassles. With WIZA, travel agents deliver faster, smarter, and seamless visa experiences to their customers.
+                                </p>
+                            </section>
+                        </div>
+                        <!--right side-->
+                    </div>
+                    <!--end row-->
+                </div>
+                <!--end modal-body-->
+            </div>
+            <!--end modal-content-->
+        </div>
+        <!--end container-->
+    </div>
+    <!--end modal-dialog-->
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="modal-about-us" tabindex="-1" role="dialog" aria-labelledby="modal-about-us-label">
     <div class="modal-dialog" role="document">
         <div class="container">
@@ -214,7 +266,10 @@
 <!--end #modal-about-us-->
 
 <!-- Modal Contact Us -->
-<div class="modal fade" id="modal-contact-us" tabindex="-1" role="dialog" aria-labelledby="modal-contact-us-label">
+
+<div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/50">
+  <div className="relative w-full max-w-md p-6 bg-white rounded-xl">
+        <div class="modal fade" id="modal-contact-us" tabindex="-1" role="dialog" aria-labelledby="modal-contact-us-label">
     <div class="modal-dialog modal-lg" role="document"> <!-- Added modal-lg for wider screens -->
         <div class="modal-content">
             <div class="modal-header" style="background-color: #fcb414;">
@@ -269,6 +324,8 @@
             </div>
         </div>
     </div>
+        </div>
+  </div>
 </div>
 
 <!--end #modal-contact-us-->
