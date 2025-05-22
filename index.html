@@ -293,38 +293,45 @@
     var radius = 0;
     var randomColor = 0;
 
-    Sketch.create({
+    var isTouch = false;
 
-        container: document.getElementById( 'background-content' ),
+    Sketch.create({
+        container: document.getElementById('background-content'),
         autoclear: false,
         retina: 'auto',
 
         update: function() {
-            radius = 1 + abs( sin( this.millis * 0.003 ) * 50 );
+            radius = 1 + Math.abs(Math.sin(this.millis * 0.003) * 50);
         },
 
         click: function() {
+            if (!isTouch) {
+                randomColor = (randomColor + 1) % COLOURS.length;
+            }
+        },
+
+        touchstart: function() {
+            isTouch = true;
             randomColor = (randomColor + 1) % COLOURS.length;
         },
 
         touchmove: function() {
-
-            for ( var i = this.touches.length - 1, touch; i >= 0; i-- ) {
-
+            for (var i = this.touches.length - 1, touch; i >= 0; i--) {
                 touch = this.touches[i];
 
                 this.lineCap = 'round';
                 this.lineJoin = 'round';
-                this.fillStyle = this.strokeStyle = COLOURS[ randomColor % COLOURS.length ];
+                this.fillStyle = this.strokeStyle = COLOURS[randomColor];
                 this.lineWidth = radius;
 
                 this.beginPath();
-                this.moveTo( touch.ox, touch.oy );
-                this.lineTo( touch.x, touch.y );
+                this.moveTo(touch.ox, touch.oy);
+                this.lineTo(touch.x, touch.y);
                 this.stroke();
             }
         }
     });
+
 
 
 </script>
