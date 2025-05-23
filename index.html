@@ -56,30 +56,115 @@
             }
         }
 
-        @media (max-width: 575.98px) {
-        .modal-header h2 {
-            font-size: 1.25rem;
-        }
+         .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
 
-        .form-control {
-            font-size: 0.9rem;
-        }
+  .modal-content {
+    background: white;
+    width: 60vw;
+    max-width: 1000px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-header {
+    background: #165cfe;
+    color: white;
+    padding: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+  }
 
-        .btn {
-            width: 100%;
-        }
-        }
+  .modal-body {
+    display: flex;
+    padding: 1.5rem;
+    gap: 3rem;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center; /* vertical center */
+    align-items: center;    /* horizontal center */
+    min-height: 200px;  
+  }
 
-        .modal-backdrop {
-        z-index: 1040 !important;
-        }
+#modal-contact-us .modal-content {
+  width: 30vw;  /* desktop width */
+  max-width: 100%; /* prevent overflow */
+}
 
-        .modal {
-        z-index: 1050 !important;
-        }
-        
+/* For mobile screens */
+@media (max-width: 576px) {
+  #modal-contact-us .modal-content {
+    width: 80vw;  /* wider on mobile */
+    margin: 0 1rem; /* small side margins */
+    align-content: center;
+  }
+}
 
 
+  .modal-logo {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-text {
+    flex: 2;
+    min-width: 250px;
+  }
+
+  .modal-text h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .modal-text p {
+    font-size: 1rem;
+    color: #000000;
+    line-height: 1.6;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .modal-content {
+      width: 90vw;
+    }
+    .modal-body {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .modal-logo, .modal-text {
+      width: 100%;
+    }
+  }
+
+  .modal-header-contact {
+  background-color: #fcb414 !important; /* example: green */
+  color: white !important;
+}
 
     </style>
 
@@ -163,172 +248,100 @@
 </div>
 <!--end page-wrapper-->
 
+<!--Modal-start-->
+
 <!-- Modal About Us -->
-<div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/50">
-  <div className="relative w-full max-w-md p-6 bg-white rounded-xl">
-    <div class="modal fade" id="modal-about-us" tabindex="-1" role="dialog" aria-labelledby="modal-about-us-label">
-    <div class="modal-dialog" role="document">
-        <div class="container">
-            <div class="modal-content">
-                <div class="modal-header" data-background-color="#165dfb">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h2 class="modal-title" id="modal-about-us-label">About Us</h2>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-5 col-sm-5">
-                            <section>
-                                <div class="row">
-                                    <div class="col-md-10 col-sm-8">
-                                        <div class="person">
-                                            <img src="assets/img/wiz-temp.png" alt="" width="100%">
-                                            <h4>By Agents, For Agents</h4>
-                                        </div>
-                                        <!--end image-->
-                                    </div>
-                                </div>
-                                <!--end row-->
-                            </section>
-                        </div>
-                        <!--end left side-->
-                        <div class="col-md-7 col-sm-7">
-                            <section>
-                                <h5>What is Wiza?</h5>
-                                <p>WIZA is India’s first tech-enabled, B2B-only visa platform designed exclusively for travel agents. WIZA simplifies visa processing with AI-powered tools, automated checklists, and real-time updates.
-                                </p>
-                                <p>
-                                    Our platform lets you manage end-to-end visa service, from document collection to submission. No more delays, errors, or manual hassles. With WIZA, travel agents deliver faster, smarter, and seamless visa experiences to their customers.
-                                </p>
-                            </section>
-                        </div>
-                        <!--right side-->
-                    </div>
-                    <!--end row-->
-                </div>
-                <!--end modal-body-->
-            </div>
-            <!--end modal-content-->
+
+<div class="modal fade" id="modal-about-us" tabindex="-1" role="dialog" aria-labelledby="modalAboutUsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content p-0 overflow-hidden rounded">
+      
+      <!-- Header -->
+      <div class="modal-header border-0 bg-primary text-white d-flex justify-content-between align-items-center px-4 py-3">
+        <h2 class="modal-title mb-0 font-weight-bold">About Us</h2>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="font-size: 1.5rem;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body px-4 py-5">
+        <div class="row align-items-center">
+          
+          <!-- Left Section: Logo & Tagline -->
+          <div class="col-md-5 text-center mb-4 mb-md-0">
+            <img src="/assets/img/wiz-temp.png" alt="Wiza Logo" style="max-width: 90%;">
+            <h4 class="mt-3 font-weight-bold">By Agents, For Agents</h4>
+          </div>
+
+          <!-- Right Section: Text -->
+          <div class="col-md-7">
+            <h3 class="font-weight-bold">What is Wiza?</h3>
+            <p>
+              WIZA is India’s first tech-enabled, B2B-only visa platform designed exclusively for travel agents. WIZA simplifies visa processing with AI-powered tools, automated checklists, and real-time updates.
+            </p>
+            <p>
+              Our platform lets you manage end-to-end visa service, from document collection to submission. No more delays, errors, or manual hassles. With WIZA, travel agents deliver faster, smarter, and seamless visa experiences to their customers.
+            </p>
+          </div>
         </div>
-        <!--end container-->
-    </div>
-    <!--end modal-dialog-->
+      </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="modal-about-us" tabindex="-1" role="dialog" aria-labelledby="modal-about-us-label">
-    <div class="modal-dialog" role="document">
-        <div class="container">
-            <div class="modal-content">
-                <div class="modal-header" data-background-color="#165dfb">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h2 class="modal-title" id="modal-about-us-label">About Us</h2>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-5 col-sm-5">
-                            <section>
-                                <div class="row">
-                                    <div class="col-md-10 col-sm-8">
-                                        <div class="person">
-                                            <img src="assets/img/wiz-temp.png" alt="" width="100%">
-                                            <h4>By Agents, For Agents</h4>
-                                        </div>
-                                        <!--end image-->
-                                    </div>
-                                </div>
-                                <!--end row-->
-                            </section>
-                        </div>
-                        <!--end left side-->
-                        <div class="col-md-7 col-sm-7">
-                            <section>
-                                <h5>What is Wiza?</h5>
-                                <p>WIZA is India’s first tech-enabled, B2B-only visa platform designed exclusively for travel agents. WIZA simplifies visa processing with AI-powered tools, automated checklists, and real-time updates.
-                                </p>
-                                <p>
-                                    Our platform lets you manage end-to-end visa service, from document collection to submission. No more delays, errors, or manual hassles. With WIZA, travel agents deliver faster, smarter, and seamless visa experiences to their customers.
-                                </p>
-                            </section>
-                        </div>
-                        <!--right side-->
-                    </div>
-                    <!--end row-->
-                </div>
-                <!--end modal-body-->
-            </div>
-            <!--end modal-content-->
-        </div>
-        <!--end container-->
-    </div>
-    <!--end modal-dialog-->
-</div>
-<!--end #modal-about-us-->
 
-<!-- Modal Contact Us -->
 
-<div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/50">
-  <div className="relative w-full max-w-md p-6 bg-white rounded-xl">
-        <div class="modal fade" id="modal-contact-us" tabindex="-1" role="dialog" aria-labelledby="modal-contact-us-label">
-    <div class="modal-dialog modal-lg" role="document"> <!-- Added modal-lg for wider screens -->
-        <div class="modal-content">
-            <div class="modal-header" style="background-color: #fcb414;">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h2 class="modal-title" id="modal-contact-us-label">Contact Us</h2>
-            </div>
-            <div class="modal-body">
-                <section class="container-fluid">
-                    <div class="row gy-4"> <!-- Added gy-4 for vertical spacing -->
-                        <div class="col-12 col-md-3">
-                            <h3>Address</h3>
-                            <address>
-                                4758 Nancy Street<br>
-                                +1 919-571-2528<br>
-                                <a href="mailto:hello@example.com">hello@example.com</a>
-                            </address>
-                        </div>
-                        <div class="col-12 col-md-3">
-                            <h3>Social</h3>
-                            <figure><a href="https://www.instagram.com/wizafortravel/" target="_blank" class="icon"><i class="fa fa-instagram"></i> Instagram</a></figure>
-                            <figure><a href="https://www.linkedin.com/company/wizafortravel/" target="_blank" class="icon"><i class="fa fa-linkedin"></i> LinkedIn</a></figure>
-                            <figure><a href="https://www.facebook.com/wizafortravel" target="_blank" class="icon"><i class="fa fa-facebook"></i> Facebook</a></figure>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <h3>Contact Form</h3>
-                            <form id="contact-form" action="https://formspree.io/f/xldbvyzq" method="POST" class="form clearfix inputs-underline">
-                                <div class="row">
-                                    <div class="col-12 col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="name" placeholder="Your Name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-control" rows="5" name="message" placeholder="Your Message" required></textarea>
-                                </div>
-                                <div class="form-group text-end">
-                                    <button type="submit" class="btn btn-default btn-framed btn-rounded">Send a Message</button>
-                                </div>
-                                <div class="form-contact-status"></div>
-                            </form>
-                        </div>
-                    </div>
-                </section>
-            </div>
+<!-- Contact Us Modal -->
+<div class="modal fade" id="modal-contact-us" tabindex="-1" role="dialog" aria-labelledby="modalContactInfoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content p-0 overflow-hidden rounded">
+
+      <!-- Header -->
+      <div class="modal-header border-0 modal-header-contact d-flex justify-content-between align-items-center px-4 py-3">
+        <h2 class="modal-title mb-0 font-weight-bold">Contact Information</h2>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="font-size: 1.5rem;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body px-4 py-5">
+        <div class="row align-items-center">
+
+          <!-- Left Section: Address, Phone, Email -->
+          <div class="col-md-6">
+            <h5 class="font-weight-bold mb-3">Contact Details</h5>
+            <p><strong>Address:</strong><br>123 Main Street,<br>City, State, ZIP</p>
+            <p><strong>Phone:</strong><br>+1 (234) 567-890</p>
+            <p><strong>Email:</strong><br><a href="mailto:info@example.com">info@example.com</a></p>
+          </div>
+
+          <!-- Right Section: Socials -->
+          <div class="col-md-6">
+            <h5 class="font-weight-bold mb-3">Follow Us</h5>
+            <div class="d-flex flex-column gap-2">
+                <a href="https://instagram.com/yourprofile" target="_blank" class="text-decoration-none">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-decoration-none">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://facebook.com/yourprofile" target="_blank" class="text-decoration-none">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                </div>
+          </div>
+
         </div>
+      </div>
     </div>
-        </div>
   </div>
 </div>
 
-<!--end #modal-contact-us-->
+
+<!--end #modals-->
+
 
 <script  src="assets/js/jquery-2.2.1.min.js"></script>
 <script  src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -345,7 +358,7 @@
 
     // Background
 
-    var COLOURS = [ '#ffdc40', '#17b6ff', '#FFFFFF' ];
+    var COLOURS = [ '#ffd500', '#17b6ff', '#FFFFFF' ];
     var radius = 0;
     var randomColor = 0;
 
@@ -388,6 +401,30 @@
         }
     });
 
+
+
+
+    // avoid freeze 
+
+    document.addEventListener("DOMContentLoaded", function () {
+    // Fix autofill causing unresponsive modal
+    const inputs = document.querySelectorAll('input, textarea, select');
+
+    setTimeout(() => {
+        inputs.forEach(input => {
+            const value = input.value;
+            input.value = '';
+            input.value = value;
+        });
+    }, 500); // Let autofill happen first
+
+    // Enable Bootstrap modals to work properly with autofill
+    $('.modal').on('shown.bs.modal', function () {
+        setTimeout(function () {
+            $(this).find('input:first').focus().blur();
+        }.bind(this), 200);
+    });
+    });
 
 
     // avoid redirect

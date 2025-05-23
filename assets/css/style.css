@@ -105,6 +105,7 @@ h5 {
 
 p {
     opacity: .6;
+    text-align: left;
 }
 
 img {
@@ -786,6 +787,13 @@ form .status i {
     text-align: left;
 }
 
+@media (max-width: 576px) {
+  .modal-dialog .modal-content h5 {
+    text-align: center; /* center text on mobile */
+  }
+}
+
+
 .modal-dialog .modal-content .modal-header {
     border-bottom: none;
     padding: 4.0625rem 2.8125rem;
@@ -813,6 +821,21 @@ form .status i {
 .modal-dialog .modal-content .modal-body h3{
     text-align: left;
 }
+
+.modal-body .row > [class*="col-"] {
+  padding-bottom: 1.5rem; /* add padding below each column */
+}
+
+@media (min-width: 768px) {
+  .modal-body .row > [class*="col-"] {
+    padding-bottom: 0; /* remove on desktop */
+  }
+}
+
+.modal-body .row {
+  flex-wrap: wrap !important;
+}
+
 
 /* -- Page Wrapper */
 
