@@ -972,3 +972,25 @@ form .status i {
         height: 100%;
     }
 }
+
+
+
+@media (max-width: 576px) {
+  .social-links-mobile-left {
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+}
+
+
+
+
+.social-icon {
+  width: 10%;
+}
+
+@media (max-width: 576px) {
+  .social-icon {
+    width: 10%;
+  }
+}
