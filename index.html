@@ -351,6 +351,7 @@
 <script  src="assets/js/sketch.min.js"></script>
 <script  src="assets/js/custom.js"></script>
 <!-- For Bootstrap 4 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -407,16 +408,6 @@
     // avoid freeze 
 
     document.addEventListener("DOMContentLoaded", function () {
-    // Fix autofill causing unresponsive modal
-    const inputs = document.querySelectorAll('input, textarea, select');
-
-    setTimeout(() => {
-        inputs.forEach(input => {
-            const value = input.value;
-            input.value = '';
-            input.value = value;
-        });
-    }, 500); // Let autofill happen first
 
     // Enable Bootstrap modals to work properly with autofill
     $('.modal').on('shown.bs.modal', function () {
