@@ -199,8 +199,9 @@ B. Helpers
 
 .note {
     opacity: .4;
-    font-size: .75rem;
+    font-size: .95rem;
     margin: .5rem 0;
+    text-align: center;
 }
 
 .shadow {
